@@ -26,7 +26,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.G))//TODO allow player to map later or add to menu
+        {
             isDirectMode = !isDirectMode;
+            currentClickTarget = transform.position;//Clear click target
+        }
+            
 
         if (isDirectMode)
             ProcessDirectMovement();
@@ -49,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            print("Cursor raycast hit " + cameraRaycaster.layerHit);
+            print("Cursor raycast hit " + cameraRaycaster.LayerHit);
 
-            switch (cameraRaycaster.layerHit)
+            switch (cameraRaycaster.LayerHit)
             {
                 case Layer.Walkable:
                     currentClickTarget = cameraRaycaster.hit.point;

@@ -2,6 +2,9 @@
 
 public class CameraRaycaster : MonoBehaviour
 {
+
+    public delegate void OnLayerChange(Layer newLayer);
+
     public Layer[] layerPriorities = {
         Layer.Enemy,
         Layer.Walkable
@@ -10,6 +13,7 @@ public class CameraRaycaster : MonoBehaviour
     [SerializeField]
     float distanceToBackground = 100f;
     Camera viewCamera;
+    public event OnLayerChange OnLayerChanged;
 
     RaycastHit m_hit;
     public RaycastHit hit
@@ -17,10 +21,10 @@ public class CameraRaycaster : MonoBehaviour
         get { return m_hit; }
     }
 
-    Layer m_layerHit;
-    public Layer layerHit
+    Layer layerHit;
+    public Layer LayerHit
     {
-        get { return m_layerHit; }
+        get { return layerHit; }
     }
 
     void Start() // TODO Awake?
@@ -36,15 +40,21 @@ public class CameraRaycaster : MonoBehaviour
             var hit = RaycastForLayer(layer);
             if (hit.HasValue)
             {
+                //If the layer has changed then call the events
+                if (layerHit != layer)
+                {
+                    if(OnLayerChanged != null)
+                        OnLayerChanged(layer);
+                }
                 m_hit = hit.Value;
-                m_layerHit = layer;
+                layerHit = layer;
                 return;
             }
         }
 
         // Otherwise return background hit
         m_hit.distance = distanceToBackground;
-        m_layerHit = Layer.RaycastEndStop;
+        layerHit = Layer.RaycastEndStop;
     }
 
     RaycastHit? RaycastForLayer(Layer layer)
