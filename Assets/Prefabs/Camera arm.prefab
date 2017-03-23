@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4493044091053550}
-  - component: {fileID: 114561922817118830}
+  - component: {fileID: 114038414434080226}
   m_Layer: 0
   m_Name: Camera arm
   m_TagString: Untagged
@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 54980358478179318}
   - component: {fileID: 114594039184947242}
   - component: {fileID: 114961343877716664}
-  - component: {fileID: 114347189961007356}
   m_Layer: 0
   m_Name: FreeLookCameraRig
   m_TagString: Untagged
@@ -99,7 +98,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058396597560880}
-  m_LocalRotation: {x: -0, y: 0.03546039, z: -0, w: 0.9993711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.492061, y: 0, z: 1.2370331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -113,14 +112,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614294082566034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.078047514, y: 0.041197777, z: 0.6849456}
+  m_LocalRotation: {x: 0.2526841, y: -0.20906451, z: 0.05601868, w: 0.9430296}
+  m_LocalPosition: {x: 2.5, y: 5.03, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4835749396616608}
   m_Father: {fileID: 4493044091053550}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: -25, z: 0}
 --- !u!4 &4835749396616608
 Transform:
   m_ObjectHideFlags: 1
@@ -198,27 +197,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677349249924056}
   m_Enabled: 1
---- !u!114 &114347189961007356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614294082566034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea8047c7e7c887042bef92ea89e877b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_AutoTargetPlayer: 1
-  m_UpdateType: 0
-  m_MoveSpeed: 1
-  m_TurnSpeed: 1.5
-  m_TurnSmoothing: 0
-  m_TiltMax: 75
-  m_TiltMin: 45
-  m_VerticalAutoReturn: 0
---- !u!114 &114561922817118830
+--- !u!114 &114038414434080226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -229,15 +208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8047c7e7c887042bef92ea89e877b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_AutoTargetPlayer: 1
-  m_UpdateType: 0
-  m_MoveSpeed: 1
-  m_TurnSpeed: 1.5
-  m_TurnSmoothing: 0
-  m_TiltMax: 75
-  m_TiltMin: 45
-  m_VerticalAutoReturn: 0
+  tiltMax: 75
+  tiltMin: 45
+  pivot: {fileID: 4835749396616608}
+  CameraRigAnchor: {fileID: 4519293130337894}
+  Target: {fileID: 0}
+  turnSpeed: 5
 --- !u!114 &114594039184947242
 MonoBehaviour:
   m_ObjectHideFlags: 1
